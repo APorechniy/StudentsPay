@@ -1,6 +1,6 @@
 {
-    "host": "sm9j2j5q6c8bpgyq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "user": "vbp7hu8grk9es1tu",
-    "database": "tbm06gj7m8uuqilq",
-    "password": "tcgl8thes8uw8gdk"
+    "host": "localhost",
+    "user": "root",
+    "database": "StudentsPay",
+    "password": "Rhbcnbyf1REPA"
 }
