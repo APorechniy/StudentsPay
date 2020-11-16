@@ -1,6 +1,12 @@
+import Routers from './routers/Routers';
+import Sidebar from './components/Sidebar/Sidebar';
+
 function App() {
   return (
-    <div>Start</div>
+    <div>
+      <Sidebar />
+      <Routers />
+    </div>
   );
 }
 
