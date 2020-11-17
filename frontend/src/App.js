@@ -1,3 +1,5 @@
+import { BrowserRouter } from 'react-router-dom';
+
 import Routers from './routers/Routers';
 import Sidebar from './components/Sidebar/Sidebar';
 
@@ -5,7 +7,9 @@ function App() {
   return (
     <div>
       <Sidebar />
-      <Routers />
+      <BrowserRouter>
+        <Routers />
+      </BrowserRouter>
     </div>
   );
 }
