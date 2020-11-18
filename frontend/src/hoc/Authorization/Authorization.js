@@ -20,8 +20,8 @@ class Authorization extends PureComponent {
 
         return(
             <Container>
-                <Login value={login} onChange={(e) => changeHandler(this.value, "authLogin")} placeholder="Введите логин..."/>
-                <Password value={password} onChange={(e) => changeHandler(this.value, "authPassword")} placeholder="Введите пароль..."/>
+                <Login value={login} onChange={(e) => changeHandler(e.target.value, "authLogin")} placeholder="Введите логин..."/>
+                <Password value={password} onChange={(e) => changeHandler(e.target.value, "authPassword")} placeholder="Введите пароль..."/>
                 <Buttons>
                     <SignIn onClick={signIn}/>
                     <ForgotPassword />
@@ -50,30 +50,41 @@ const Login = styled.input`
     width: 50%;
     height: 15px;
 
-    margin-top: 40px;
+    margin-top: 50px;
 
     line-height: 10px;
     padding: 2px;
+    @media (max-width: 1200px) {
+        width: 70%;
+    }
 `;
 
 const Password = styled.input`
     width: 50%;
     height: 15px;
 
-    margin-top: 20px;
+    margin-top: 10px;
 
     line-height: 10px;
     padding: 2px;
+
+    @media (max-width: 1200px) {
+        width: 70%;
+    }
 `;
 
 const Buttons = styled.div`
     width: 60%;
     height: 25px;
 
-    margin-top: 80px;
+    margin-top: 50px;
 
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 1200px) {
+        width: 80%;
+    }
 `;
 
 const SignIn = styled.button`

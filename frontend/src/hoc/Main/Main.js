@@ -34,17 +34,19 @@ class Main extends PureComponent {
             authPassword
         } = this.state;
 
-        console.log(this.state)
-
         axios.post('http://localhost:5000/signin',
             {
-                body: {
-                    login: authLogin,
-                    password: authPassword
-                }
+                login: authLogin,
+                password: authPassword
             }
         ).then((response) => {
-            console.log(response);
+            if(response.data.length === 0){
+                alert("Fail")
+            } else {
+                alert("Succeeded");
+                const sessionId = response.data[0].session;
+                localStorage.setItem("uuid", sessionId);
+            }
         }).catch((error) => {
             console.log(error);
         })
@@ -52,7 +54,7 @@ class Main extends PureComponent {
 
     render() {
         let { activeTab, authLogin, authPassword } = this.state;
-        console.log(authLogin)
+        
         return (
             <Container>
                 <FormWrap>
@@ -89,10 +91,15 @@ const Container = styled.div`
 
 const FormWrap = styled.div`
     width: 35%;
-    height: 40%;
+    height: 400px;
 
     border-radius: 15px;
     box-shadow: 0 0 5px 2px rgba(122,122,122,0.5);
+
+    @media (max-width: 1200px) {
+        width: 70%;
+        height: 300px;
+    }
 `;
 
 const FormHeader = styled.div`

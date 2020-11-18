@@ -4,9 +4,10 @@ import Routers from './routers/Routers';
 import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
+  let isAuth = Boolean(localStorage.getItem("uuid"));
   return (
     <div>
-      <Sidebar />
+      { isAuth ? <Sidebar /> : null }
       <BrowserRouter>
         <Routers />
       </BrowserRouter>
