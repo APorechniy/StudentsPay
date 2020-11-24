@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-class Authorization extends PureComponent {
+class Registration extends PureComponent {
     constructor(props){
         super(props);
 
@@ -14,14 +14,21 @@ class Authorization extends PureComponent {
         let {
             login,
             password,
+            fullName,
+            role,
             changeHandler,
             signIn
         } = this.props;
 
         return(
             <Container>
-                <Login value={login} onChange={(e) => changeHandler(e.target.value, "authLogin")} placeholder="Введите логин..."/>
-                <Password value={password} onChange={(e) => changeHandler(e.target.value, "authPassword")} placeholder="Введите пароль..."/>
+                <Login value={login} onChange={(e) => changeHandler(e.target.value, "regLogin")} placeholder="Введите логин..."/>
+                <Password value={password} onChange={(e) => changeHandler(e.target.value, "regPassword")} placeholder="Введите пароль..."/>
+                <FullName value={fullName} onChange={(e) => changeHandler(e.target.value, "regFullName")} placeholder="Введите ФИО..."/>
+                <Roles value={role} onChange={(e) => changeHandler(e.target.value, "regRole")} placeholder="Выберите роль на портале...">
+                    <Role value={"ADMIN"}>Администратор</Role>
+                    <Role value={"STUDENT"}>Студент</Role>
+                </Roles>
                 <Buttons>
                     <SignIn onClick={signIn}/>
                     <ForgotPassword />
@@ -31,7 +38,7 @@ class Authorization extends PureComponent {
     }
 }
 
-export default Authorization;
+export default Registration;
 
 const Container = styled.div`
     width: 100%;
@@ -70,6 +77,45 @@ const Password = styled.input`
 
     @media (max-width: 1200px) {
         width: 70%;
+    }
+`;
+
+const FullName = styled.input`
+    width: 50%;
+    height: 15px;
+
+    margin-top: 10px;
+
+    line-height: 10px;
+    padding: 2px;
+
+    @media (max-width: 1200px) {
+        width: 70%;
+    }
+`;
+
+const Roles = styled.select`
+    width: 50%;
+    height: 25px;
+
+    margin-top: 10px;
+
+    line-height: 10px;
+
+    @media (max-width: 1200px) {
+        width: 70%;
+    }
+`;
+
+const Role = styled.option`
+    width: 100%;
+    height: 15px;
+
+    line-height: 10px;
+    padding: 2px;
+
+    @media (max-width: 1200px) {
+        width: 100%;
     }
 `;
 

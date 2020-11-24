@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // Components
 import Authorization from '../Authorization/Authorization';
+import Registration from '../Registration/Registration';
 
 class Main extends PureComponent {
     constructor(props) {
@@ -41,11 +42,13 @@ class Main extends PureComponent {
             }
         ).then((response) => {
             if(response.data.length === 0){
-                alert("Fail")
+                return
             } else {
-                alert("Succeeded");
                 const sessionId = response.data[0].session;
-                localStorage.setItem("uuid", sessionId);
+
+                document.cookie = `uuid=${sessionId}; path=/; secure=true;`;
+                console.log(document.cookie)
+                window.location.href = "/dashboard";
             }
         }).catch((error) => {
             console.log(error);
@@ -70,7 +73,11 @@ class Main extends PureComponent {
                     <FormBody>
                         { 
                             (activeTab === 'AUTH') ? 
-                            <Authorization login={authLogin} password={authPassword} changeHandler={this.changeAuthForm} signIn={this.signIn}/> : <div></div>
+                            <Authorization login={authLogin} password={authPassword} changeHandler={this.changeAuthForm} signIn={this.signIn}/> : null
+                        }
+                        {
+                            (activeTab === 'SIGNUP') ?
+                            <Registration login={authLogin} password={authPassword} changeHandler={this.changeAuthForm} signIn={this.signIn}/> : null
                         }
                     </FormBody>
                 </FormWrap>
