@@ -15,6 +15,13 @@ app.use(bodyParser.urlencoded({
     extended: true,
 }));
 
+app.use(async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "origin, content-type, accept");
+    next();
+});
+
 //Add routing
 routes(app);
 
