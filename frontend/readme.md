@@ -1,4 +1,4 @@
-# shopwindow
+# StudentsPay
 
 ## Environment
 
@@ -7,8 +7,8 @@
 | NODE_ENV                      | development                                                       |             |
 | HOST                          | 0.0.0.0                                                           |             |
 | PORT                          | 8080                                                              |             |
-| SELF_HOST                     | http://localhost:8080                                             |             |
-| REMOTE_HOST                   | http://promlinks.ru                                               |             |
+| SELF_HOST                     | http://localhost:3080                                             |             |
+| REMOTE_HOST                   | -                                              |             |
 | BACKEND_PORT                  | 8083                                                             |             |
 | TVM_TICKET                    |                                                                   |             |
 | REDIS_HOST                    | 0.0.0.0                                                           |             |
