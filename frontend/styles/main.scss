@@ -1,0 +1,15 @@
+@import "node_modules/bootstrap/scss/_functions.scss";
+
+@import "variables.scss";
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+    background: #171717;
+    min-width: 100%;
+    min-height: 100vh;
+}
+
+a {
+    color: #00a6d2 !important;
+}

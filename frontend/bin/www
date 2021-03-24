@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+const http = require('http')
+require('dotenv').config()
+
+const {initApp} = require('../app')
+const config = require('config')
+
+function initServer(app) {
+  return () => {
+    const server = http.createServer(app)
+    server.listen({host: config.host, port: config.port})
+
+    server.on('listening', () => {
+      const addr = server.address()
+      const bind = typeof addr === 'string' ?
+        'pipe ' + addr :
+        'port ' + addr.port
+      console.log('Listening on ' + bind)
+    })
+  }
+}
+
+initApp(initServer)
